@@ -8,12 +8,22 @@ function App() {
 
   return (
     <div className="App">
+      <div className='colour'>
+
+      </div>
       <NavBar />
-      <Hero />
-      <PlayButton />
-    </div>
+      <div className='colour'>
+      </div>
+      <div className='colour'>
+      
+      </div>
+        <Hero />
+      <div className='colour'>
+        
+      </div>
+      
 
-
+      </div>
   );
 }
 

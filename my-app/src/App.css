@@ -1,5 +1,12 @@
 .App {
+  display: grid;
+  grid-template-areas:
+            ". flexboxNavBar ."
+            ". Content ."
+            ;
   text-align: center;
+  grid-template-columns: 1fr max(600px) 1fr;
+
 }
 
 .App-logo {
@@ -24,10 +31,6 @@
   color: white;
 }
 
-.App-link {
-  color: #61dafb;
-}
-
 @keyframes App-logo-spin {
   from {
     transform: rotate(0deg);
@@ -39,22 +42,22 @@
 }
 
 .NavBar {
-  max-width: 850px;
-  width: 60%;
-  min-width: 500px;
-  background-color: rgb(213, 138, 53);
+  background-color: #715D5D;
   display: flex;
   justify-content: space-between;
   margin: auto;
+
 }
 
 .logo {
   max-height: 85px;
 }
 
-.container {
-  background-color: rgb(241, 229, 114);
+.colour {
+  background-color: #18181A;
+
 }
+
 
 .picture1 {
   transform: scaleX(-1);
@@ -62,27 +65,40 @@
 
 /* Hero */
 .okdle-box {
-  background-color: aquamarine;
   width: 100%;
-  height: 90vh;
+  height: 91vh;
+  background-color: #2F2F2F;
 }
 
 .play-field {
   display:flex;
-  margin: auto;
-  max-width: 640px;
-  background-color: rgb(11 109 57);
+  opacity: 0.85;
   width: 100%;
   height: 100%;
+  position: relative;
+  
+}
+
+.play-field::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;
+  background-image: url(https://s3-alpha-sig.figma.com/img/a501/515d/2cc572e2d397cc44d75fc33af4518e2a?Expires=1705276800&Key-Pair-Id=APKAQ4GOSFWCVNEHN3O4&Signature=HQ3vE6sWWIOoF7Q6bkt-lxXGvl8~lFieHZw7sSQS9SElOgfTvGwiQP2-moEl1GZqHMcFbxxBWVBn2C6Jbzgafu6h-ybR6vvHI5XbeEez18huugw3xrNYkDxEFOhdyEQdBo0ruwfVhCiBW-elCtHY8pza8ggbjNmNffN1fVVaOZGAtSfBZuuNq-MEsB2Q-9IIpHfAoBcntPk79sMdicRbVKBeuKj9QnyrBV2tMroXe~nos1m8aBuaVsxQJAZVIt2BTm3VlQ5YopUOW0GZm8h4C7z6bcZgxZ9BtZTEXI5q20BqWonxsZ7bvksPXyBmkfM5pT8JPk5gDGVQy2D7uEmVYQ__);
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+  opacity: 0.1;
+  filter: blur(8px);
 }
 
 .footer {
-  left: 50%;
-  transform: translate(-50%);
-  position: absolute;
-  bottom: 0px;
-  align-items: center;
-  display: flex;
-  flex-direction: column;
+ margin: auto;
   font-weight: 700;
+  width: 100%;
+  
 }
+
+
