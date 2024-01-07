@@ -32,7 +32,18 @@
   from {
     transform: rotate(0deg);
   }
+
   to {
     transform: rotate(360deg);
   }
+}
+
+/* image 4 */
+
+.picture1 {
+  width: 900.51px;
+  height: 78px;
+  left: 398.49px;
+  top: 0px;
+  background-color: black;
 }
