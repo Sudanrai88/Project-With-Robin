@@ -38,14 +38,26 @@
   }
 }
 
-/* image 4 */
+.NavBar {
+  max-width: 850px;
+  width: 60%;
+  min-width: 500px;
+  background-color: rgb(213, 138, 53);
+  display: flex;
+  justify-content: space-between;
+  margin: auto;
+}
+
+.logo {
+  max-height: 85px;
+}
+
+.container {
+  background-color: rgb(241, 229, 114);
+}
 
 .picture1 {
-  width: 900.51px;
-  height: 78px;
-  left: 398.49px;
-  top: 0px;
-  background-color: black;
+  transform: scaleX(-1);
 }
 
 /* Hero */
