@@ -1,36 +1,53 @@
-import React from 'react'
+import React, { useState } from 'react';
+
 
 function PlayButton() {
+  const [message, setMessage] = useState('');
+
+  const fetchData = () => {
+    fetch('http://localhost:8080/api/sounds/getString')
+      .then(response => response.text())  // Assuming the response is a plain text
+      .then(data => {
+        setMessage(data);
+      })
+      .catch(error => {
+        console.error('There was an error!', error);
+      });
+  };
+
+
+  async function startPlay() {
+    fetch('http://localhost:8080/api/sounds/getSound', {
+      method: 'GET',
+    })
+      .then(response => response.blob())
+      .then(blob => {
+        // Create a URL for the blob
+        const url = window.URL.createObjectURL(blob);
+        // Create an audio element and set its source to the URL
+        const audio = new Audio(url);
+        audio.load();
+        audio.play();
+      })
+      .catch(error => console.error('Error fetching audio:', error));
+  }
+
   return (
     <div className="button-play active">
-    <button id='play-button' onClick={startPlay}>
+      <button id='play-button' onClick={startPlay}>
         Play
-    </button>
+      </button>
+
+      <button onClick={fetchData}>Fetch String</button>
+      <p>{message}</p>
+
+
     </div>
   )
 }
 
 
-async function startPlay() {
-  fetch('https://localhost:3000/API/getSound', {
-    method: 'GET',
-  })
-  .then(response => {
-    // Check if response status is OK
-    if (!response.ok) {
-      throw new Error('Network response was not ok');
-    }
-    return response.blob();
-  })
-  .then(blob => {
-    const audio = new Audio();
-    const blobUrl = URL.createObjectURL(blob);
-    audio.src = blobUrl;
-    audio.play();
-  })
-  .catch(error => {
-    console.error('Error:', error)
-  });
-};
+
+
 
 export default PlayButton
